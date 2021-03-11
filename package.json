@@ -1,0 +1,44 @@
+{
+  "name": "wd-aws",
+  "version": "1.0.0",
+  "description": "wd-aws",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "",
+    "build": "webpack --config ./config/webpack.prod.config.js",
+    "start": "pm2 start ./config/pm2.prod.config.js",
+    "stop": "pm2 kill",
+    "dev": "concurrently --kill-others \"webpack watch --config ./config/webpack.dev.config.js\" \"pm2-dev start ./config/pm2.dev.config.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/cors": "^2.2.3",
+    "dotenv": "^8.2.0",
+    "knex": "^0.16.5",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-combine-routers": "^4.0.2",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^7.4.0",
+    "mysql2": "^1.7.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.8",
+    "@babel/node": "^7.13.0",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/register": "^7.13.8",
+    "async-csv": "^2.1.3",
+    "babel-loader": "^8.2.2",
+    "concurrently": "^6.0.0",
+    "csv-parse": "^4.15.3",
+    "knex-migrate": "^1.7.4",
+    "minimist": "^1.2.5",
+    "webpack": "^5.24.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-node-externals": "^2.5.2"
+  }
+}
