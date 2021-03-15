@@ -8,7 +8,8 @@
     "build": "webpack --config ./config/webpack.prod.config.js",
     "start": "pm2 start ./config/pm2.prod.config.js",
     "stop": "pm2 kill",
-    "dev": "concurrently --kill-others \"webpack watch --config ./config/webpack.dev.config.js\" \"pm2-dev start ./config/pm2.dev.config.js\""
+    "dev": "concurrently --kill-others \"webpack watch --config ./config/webpack.dev.config.js\" \"pm2-dev start ./config/pm2.dev.config.js\"",
+    "init": "webpack --config ./config/webpack.dev.config.js"
   },
   "author": "",
   "license": "ISC",

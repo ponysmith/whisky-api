@@ -14,10 +14,18 @@ $ git clone git@github.com:ponysmith/whisky-api.git
 ```
 
 ### Install dependencies
+
+Install the project dependencies
 ```bash
 $ cd <project_root>
 $ npm install
 ```
+
+The app uses `pm2` as a process manager, so you'll also need to install `pm2` globally:
+```bash
+$ npm install -g pm2
+```
+
 
 ### Create Database
 You'll need to manually create the database. You can do this by connecting to your chosen MySQL instance:
@@ -44,13 +52,20 @@ $ knex seed:run --env development
 ## Start the application
 
 ### Development 
-To run the application in dev mode with live reload:
 
+To run the application in dev mode with live reload:
 ```bash
 $ npm run dev
 ```
-
 To stop the server, simply use `ctrl+c` in the terminal where the server is running.
+
+> **NOTE**
+>
+> If the `dist/dev.bundle.js` file doesn't exist (such as with a fresh clone of the repo), you may get an error when trying to launch the dev server. If that happens, simply run the init command first to build the file and then launch the dev server.
+> ```bash
+> $ npm run init
+> $ npm run dev
+> ```
 
 ### Production
 To run the application in production mode, first build the production JS bundle, the launch the server in production mode:
