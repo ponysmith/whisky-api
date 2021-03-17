@@ -1,7 +1,7 @@
 {
-  "name": "wd-aws",
+  "name": "whisky-app",
   "version": "1.0.0",
-  "description": "wd-aws",
+  "description": "whisky-app",
   "main": "src/server.js",
   "scripts": {
     "test": "",

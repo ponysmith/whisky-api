@@ -1,7 +1,7 @@
 module.exports = {
   apps : [
     {
-      name: "wd-aws",
+      name: "whisky-app-dev",
       script: "./dist/dev.bundle.js"
     }
   ]
