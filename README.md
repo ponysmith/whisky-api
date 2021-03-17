@@ -42,7 +42,13 @@ mysql> create database <dbname>;
 Copy the `.env.sample` file in the root directory and create `.env.development` and `.env.production` files. Supply the database connection information in the files to allow the application to connect to the database(s). Make sure to use the same database name as the one you created above.
 
 ### Run migrations and seeds
-Once you have created the database and configured the environment variables, you can use Knex ([knexjs.org](knexjs.org)) to run migrations and seed the table with data. Set the environment flag to the desired environment.
+Once you have created the database and configured the environment variables, you can use Knex ([knexjs.org](knexjs.org)) to run migrations and seed the table with data. The easiest way is to just install Knex globally via NPM:
+
+```bash
+$ npm install -g knex
+```
+
+Once you have Knex installed, just run the migration and seed commands (remember to set the environment flag to the desired environment).
 
 ```bash
 $ knex migrate:latest --env development
