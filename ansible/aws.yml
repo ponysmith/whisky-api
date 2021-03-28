@@ -1,0 +1,7 @@
+---
+
+- hosts: all
+  roles:
+    - { role: git, tags: ['git'] }
+    - { role: nodejs, tags: ['nodejs'] }
+    - { role: mysql, tags: ['mysql'] }

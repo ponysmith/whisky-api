@@ -1,0 +1,23 @@
+---
+
+- name: Download apt repo install script
+  get_url: 
+    url: https://deb.nodesource.com/setup_14.x
+    dest: /tmp/node_setup_14
+    mode: 0777
+    
+- name: Run the install script
+  become: yes
+  ansible.builtin.shell: /tmp/node_setup_14
+
+- name: Remove the script
+  file: 
+    path: /tmp/node_setup_14
+    state: absent
+
+- name: Install node
+  become: yes
+  apt:
+    pkg: ['nodejs']
+    state: present
+    update_cache: yes
