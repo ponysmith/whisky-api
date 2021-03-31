@@ -2,17 +2,17 @@
 
 - name: Download apt repo install script
   get_url: 
-    url: https://deb.nodesource.com/setup_14.x
-    dest: /tmp/node_setup_14
+    url: https://deb.nodesource.com/setup_15.x
+    dest: /tmp/node_setup_15
     mode: 0777
     
 - name: Run the install script
   become: yes
-  ansible.builtin.shell: /tmp/node_setup_14
+  ansible.builtin.shell: /tmp/node_setup_15
 
 - name: Remove the script
   file: 
-    path: /tmp/node_setup_14
+    path: /tmp/node_setup_15
     state: absent
 
 - name: Install node
