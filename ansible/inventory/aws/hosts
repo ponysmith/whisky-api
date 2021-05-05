@@ -1,2 +1,2 @@
 [all]
-api_01 ansible_host=52.8.229.16 ansible_python_interpreter=/usr/bin/python3
+api_01 ansible_host=<IP> ansible_python_interpreter=/usr/bin/python3
