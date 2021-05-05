@@ -1,11 +1,16 @@
 import knex from '../connection';
 
 export const getAllWhiskies = (filterObj) => {
+  console.log(filterObj)
   const query = knex('whiskies')
     .select('id', 'name', 'rating')
     .limit(100);
-  query.where('rating', '>=', filterObj.ratingMin)
-  query.where('rating', '<=', filterObj.ratingMax)
+  if('ratingMin' in filterObj) { 
+    query.where('rating', '>=', filterObj.ratingMin) 
+  }
+  if('ratingMax' in filterObj) {
+    query.where('rating', '<=', filterObj.ratingMax)
+  }
   switch(filterObj.type) {
     case 'sms':
       query.where('type', '=', 'Single Malt Scotch');

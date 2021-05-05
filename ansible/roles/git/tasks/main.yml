@@ -1,8 +1,0 @@
----
-
-- name: Install git
-  become: yes
-  apt:
-    pkg: ['git-all']
-    state: present
-    update_cache: yes
