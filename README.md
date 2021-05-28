@@ -21,11 +21,6 @@ $ cd <project_root>
 $ npm install
 ```
 
-The app uses `pm2` as a process manager, so you'll also need to install `pm2` globally:
-```bash
-$ npm install -g pm2
-```
-
 
 ### Create Database
 You'll need to manually create the database. You can do this by connecting to your chosen MySQL instance:
@@ -81,3 +76,26 @@ $ npm run build
 $ npm run start
 ```
 The production server runs as a daemon. To stop the production server, run `npm run stop` from the project root.
+
+
+## A word on setting up the server
+
+This repository includes an Ansible playbook for provisioning the API server. While this isn't strictly necessary (you can absolutely install and configure things by hand), it can be helpful in setting up a remote server and ensuring it has the same versions of software, etc. If you want to use Ansible to provision a remote server (e.g. an AWS EC2 instance), follow the steps below:
+
+### Make sure you have Ansible installed on your local machine
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+
+### Configure the hosts file
+Edit the `/ansible/inventory/aws/hosts` file in this repo with the following changes:
+* Replace `<IP>` with the public IP address of the server you want to provision
+* By default, the Ansible playbook is set to use Python 3 as the remote interpreter. If Python 3 is not available on your remote server, remove `ansible_python_interpreter=/usr/bin/python3` from the `/ansible/inventory/aws/hosts` file to use the default Python 2
+
+### Run the Ansible Playbook
+Run the following command on your local machine from the root of the repository:
+```
+ansible-playbook ansible/aws.yml -i ansible/inventory/aws/hosts -u ubuntu --private-key=~/Desktop/whisky-api.pem
+```
+
+> The command above is for an Ubuntu instance running in AWS with a keypair PEM file called `whisky-api.pem`. You may need to update the values of the `-u` and `--private-key` flags depending on your server's user and the location of your PEM file. Just be aware that the user will need to have `sudo` permissions on the server.
+
+### Watch the magic happen!
