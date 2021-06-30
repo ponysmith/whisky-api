@@ -5,7 +5,7 @@ const Router_v1 = new Router().prefix('/v1');
 
 Router_v1.get('/', async(ctx, next) => {
   ctx.body = {
-    "api_version": "1.0",
+    "api_version": "1.1",
     "env": process.env.NODE_ENV
   }
 });
